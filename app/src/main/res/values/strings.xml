@@ -13,4 +13,6 @@
         <item quantity="one">%1$d credit hour</item>
         <item quantity="other">%1$d credit hours</item>
     </plurals>
+    <string name="btn_email">Email Instructor</string>
+    <string name="toast_no_email_app">No email app found on this device</string>
 </resources>

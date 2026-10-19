@@ -108,6 +108,22 @@
                         tools:text="Design and development of native Android applications in Java." />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEmail"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/btn_email"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:backgroundTint="@color/uol_green"
+                app:cornerRadius="14dp"
+                app:icon="@drawable/ic_email"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                app:iconTint="@color/uol_gold" />
         </LinearLayout>
     </ScrollView>
 

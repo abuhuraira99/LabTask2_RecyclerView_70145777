@@ -1,10 +1,14 @@
 package com.example.uolcoursecatalogue;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.SystemBarStyle;
@@ -60,6 +64,7 @@ public class CourseDetailActivity extends AppCompatActivity {
         TextView tvEmail = findViewById(R.id.tvEmail);
         TextView tvDetailCreditHours = findViewById(R.id.tvDetailCreditHours);
         TextView tvDescription = findViewById(R.id.tvDescription);
+        Button btnEmail = findViewById(R.id.btnEmail);
 
         tvDetailTitle.setText(title);
         tvInstructor.setText(instructor);
@@ -67,6 +72,21 @@ public class CourseDetailActivity extends AppCompatActivity {
         tvDetailCreditHours.setText(getResources()
                 .getQuantityString(R.plurals.credit_hours_long, creditHours, creditHours));
         tvDescription.setText(description);
+
+        btnEmail.setOnClickListener(v -> emailInstructor(email));
+    }
+
+    /**
+     * Opens an email app addressed only to this course's instructor. ACTION_SENDTO with a
+     * mailto: Uri is answered by email apps only, not by every app that can share text.
+     */
+    private void emailInstructor(String email) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + email));
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, R.string.toast_no_email_app, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void applyInsets(View toolbar, View content) {
