@@ -15,10 +15,17 @@ import java.util.List;
  */
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
 
-    private final List<Course> courses;
+    /** Tells the activity which card was tapped. */
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
 
-    public CourseAdapter(List<Course> courses) {
+    private final List<Course> courses;
+    private final OnItemClickListener listener;
+
+    public CourseAdapter(List<Course> courses, OnItemClickListener listener) {
         this.courses = courses;
+        this.listener = listener;
     }
 
     @NonNull
@@ -27,7 +34,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         // Inflate one card; RecyclerView reuses it later for other courses
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_course, parent, false);
-        return new CourseViewHolder(itemView);
+        return new CourseViewHolder(itemView, listener);
     }
 
     @Override
@@ -54,11 +61,19 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         final TextView tvTitle;
         final TextView tvCreditHours;
 
-        public CourseViewHolder(@NonNull View itemView) {
+        public CourseViewHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
             tvCode = itemView.findViewById(R.id.tvCode);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvCreditHours = itemView.findViewById(R.id.tvCreditHours);
+
+            itemView.setOnClickListener(v -> {
+                int position = getBindingAdapterPosition();
+                // NO_POSITION is returned while the list is being updated
+                if (listener != null && position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(position);
+                }
+            });
         }
     }
 }

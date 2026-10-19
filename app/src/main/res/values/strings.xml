@@ -4,4 +4,13 @@
     <!-- Course list -->
     <string name="list_subtitle">BS Software Engineering</string>
     <string name="credit_hours_short">%1$d Cr. Hrs</string>
+
+    <!-- Course details -->
+    <string name="label_instructor">Instructor</string>
+    <string name="label_credit_hours">Credit Hours</string>
+    <string name="label_description">Course Description</string>
+    <plurals name="credit_hours_long">
+        <item quantity="one">%1$d credit hour</item>
+        <item quantity="other">%1$d credit hours</item>
+    </plurals>
 </resources>

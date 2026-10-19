@@ -1,5 +1,6 @@
 package com.example.uolcoursecatalogue;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CourseAdapter.OnItemClickListener {
 
     private final ArrayList<Course> courses = new ArrayList<>();
 
@@ -39,7 +40,23 @@ public class MainActivity extends AppCompatActivity {
         loadCourses();
 
         rvCourses.setLayoutManager(new LinearLayoutManager(this));
-        rvCourses.setAdapter(new CourseAdapter(courses));
+        rvCourses.setAdapter(new CourseAdapter(courses, this));
+    }
+
+    /** Called by CourseAdapter with the position of the card that was tapped. */
+    @Override
+    public void onItemClick(int position) {
+        Course course = courses.get(position);
+
+        // Explicit Intent: names CourseDetailActivity and carries only this course's data
+        Intent intent = new Intent(MainActivity.this, CourseDetailActivity.class);
+        intent.putExtra(CourseDetailActivity.EXTRA_CODE, course.getCode());
+        intent.putExtra(CourseDetailActivity.EXTRA_TITLE, course.getTitle());
+        intent.putExtra(CourseDetailActivity.EXTRA_INSTRUCTOR, course.getInstructor());
+        intent.putExtra(CourseDetailActivity.EXTRA_EMAIL, course.getEmail());
+        intent.putExtra(CourseDetailActivity.EXTRA_DESCRIPTION, course.getDescription());
+        intent.putExtra(CourseDetailActivity.EXTRA_CREDIT_HOURS, course.getCreditHours());
+        startActivity(intent);
     }
 
     /** Courses of the BS Software Engineering programme shown in the list. */
