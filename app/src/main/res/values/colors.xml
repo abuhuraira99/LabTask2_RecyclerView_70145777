@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- University of Lahore brand colours -->
+    <color name="uol_green">#FF173D32</color>
+    <color name="uol_gold">#FFF8BD5F</color>
+    <color name="uol_gold_soft">#FFFDF0D8</color>
+
+    <color name="screen_background">#FFF4F6FA</color>
+    <color name="divider">#FFE1E5EC</color>
+    <color name="text_primary">#FF1E1E1E</color>
+    <color name="text_secondary">#FF5B6474</color>
+</resources>

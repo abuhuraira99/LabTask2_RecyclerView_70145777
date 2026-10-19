@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. The toolbar in each layout is used as the action bar. -->
+    <style name="Base.Theme.UOLCourseCatalogue" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/uol_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/uol_gold</item>
+        <item name="colorOnSecondary">@color/uol_green</item>
+        <item name="android:colorBackground">@color/screen_background</item>
+        <item name="android:windowBackground">@color/screen_background</item>
+    </style>
+
+    <style name="Theme.UOLCourseCatalogue" parent="Base.Theme.UOLCourseCatalogue" />
+
+    <!-- Green toolbar with a white title, gold subtitle and white back arrow -->
+    <style name="Widget.UOLCourseCatalogue.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/uol_green</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/uol_gold</item>
+        <item name="navigationIconTint">@color/white</item>
+    </style>
+
+    <!-- Small caption above each value on the details screen -->
+    <style name="TextAppearance.UOLCourseCatalogue.Label" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="TextAppearance.UOLCourseCatalogue.Value" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+</resources>
