@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">UOL Course Catalogue</string>
+
+    <!-- Course list -->
+    <string name="credit_hours_short">%1$d Cr. Hrs</string>
 </resources>
